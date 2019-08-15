@@ -1,0 +1,54 @@
+
+
+<main class="masthead">
+   
+        <div class="card-deck ">
+         <div class="card border-0 p-3 mb-5 bg-transparent rounded-0">
+         <div class="card-body ">
+            
+         <div class="jumbotron cafrd bg-transparent">
+         <h4 class="cardText"> Book unique places to stay and things to do.</h4>
+         <form class="formText" action="/host/search" method="post">
+         <div class="form-group">
+         <label for="exampleInputLocation">Where</label>
+         <input value="{{search}}" name="search" id="search" type="search" class="form-control" aria-describedby="search" placeholder="Anywhere">
+         </div>
+
+         <div class="form-row">
+         <div class="form-group col-md-6">
+         <label for="calender">Check In</label>
+         <input type="Date" name="checkin" id="checkin">
+         </div>
+         <div class="form-group col-md-6">
+         <label for="checkout">Check Out</label>
+          <input type="Date" name="checkout" id="checkout">
+
+         </div>
+         </div>
+
+                        <div class="form-group rounded-0">
+                        <div class="form-group">
+                          <label class="sr-only" for="guest">Guest</label>
+                          <select id="guest" name="guest" class="form-control">
+                              <option value="1">1 Guest</option>
+                              <option value="2">2 Guests</option>
+                              <option value="3">3 Guests</option>
+                              <option value="4">4 Guests</option>
+                              <option value="5">5 Guests</option>
+                              <option value="6">6+ Guests</option>
+                          </select>
+                        </div>
+                      </div>
+
+         {{!-- <form class="form-inline" class="formBtn">             --}}
+         <button class="btn btn-light" title="Search" type="submit">Search</button>
+         {{!-- </form> --}}
+         
+        </form>
+        </div>
+         </div>
+         </div>
+         </div>
+        
+      </main>
+<script src="/js/action.js"> </script>

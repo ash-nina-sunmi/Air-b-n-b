@@ -1,0 +1,39 @@
+{{#each errors}}
+ <div class="error">  {{this}} </div>
+{{/each}}
+
+
+
+{{!-- Displaying picture start--}}
+<section class="where">
+
+ <div class="container-fluid height ">
+ <h3 class="d-inline">Where to stay</h3>
+ <ul class="mr-auto">
+ </ul>
+ <button type="button" class="btn btn-secondary btn-sm d-inline ">Date</button>
+ <button type="button" class="btn btn-secondary btn-sm d-inline ">Guests</button>
+ </div> 
+
+<div class="card-columns gridsix container-fluid mb-5">
+{{#each hostInfo}}
+  <div class="card border-0">
+    <a href="/Host/roomdetails/{{this._id}}" class="card-link" title="Room details">
+    <img src="/images/Rooms/{{this.image.[0]}}" class="card-img-top" alt="1">
+    <div class="card-body">
+    <h5 class="card-title">{{this.title}}</h5>
+    <h6 class="card-subtitle text-muted">{{this.bed}}BEDS</h6>
+    <br>
+    <h6 class="card-subtitle text-muted">${{this.price}}/per night</h6>
+    <p class="card-text">{{this.details}}</p>
+    </a>
+    </div>
+  </div>
+ {{/each}}
+</div>
+
+
+</section>
+
+
+{{!-- Displaying picture end--}}

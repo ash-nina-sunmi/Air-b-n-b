@@ -1,0 +1,19 @@
+{{#each errors}}
+ <div class="error">  {{this}} </div>
+{{/each}}
+<p>
+  This web application allows users to manage view their tasks, create tasks, update and delete tasks
+</p>
+
+<form method="POST" action="/user/login">
+  <label> Username </label>
+  <input type="text" id="username" name="username"> <br><br>
+
+
+  <label> Password </label>
+  <input type="password" id="password" name="password"> <br><br>
+
+
+  <input type="submit" value="login">
+
+</form>

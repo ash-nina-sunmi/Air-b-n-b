@@ -1,0 +1,15 @@
+{{#each allTask}}
+ <div> {{this.title}} </div>
+ <div> {{this.description}} </div>
+
+ <a href="/task/edit/{{this._id}}"> Edit </a> &nbsp;&nbsp;
+
+
+<form method="POST" action="/task/delete/{{this._id}}?_method=DELETE">
+    <button type="submit">
+        Delete
+    </button>
+</form>
+
+ <br><br><br>
+{{/each}}

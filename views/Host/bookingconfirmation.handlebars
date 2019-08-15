@@ -1,0 +1,65 @@
+<h1>Congratulations! your booking is almost done, please confirm the form below to receive the confirmation email, thank you!</h1>
+<form action="/host/confirmbooking" method="post">
+  <fieldset disabled>
+    <div class="form-group">
+      <label for="roomtitle">Listing Title</label>
+      <input type="text" id="roomtitle" name="roomtitle" class="form-control" placeholder="{{selectedroom.title}}">
+    </div>
+
+    <div class="form-group">
+      <label for="roomlocation">Listing Location</label>
+      <input type="text" id="roomlocation" name="roomlocation" class="form-control" placeholder="{{selectedroom.location}}">
+    </div>
+        
+                        <div class="row">
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span class="form-label">Check In</span>
+                                    <input class="form-control" id="startdatee" name="startdatee" type="date" value="{{startDate}}">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span class="form-label">Check out</span>
+                                    <input class="form-control" id="enddatee" name="enddatee" type="date" value="{{endDate}}">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span class="form-label">Number of Selected days</span>
+                                    <input class="form-control" id="numberOfDays" name="numberOfDays" type="text" placeholder="{{numberOfDays}}">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span class="form-label">Price Per Night</span>
+                                    <input class="form-control" id="pricepernight" name="pricepernight" type="text" placeholder="{{selectedroom.price}}">
+                                </div>
+                            </div>
+
+                               <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span class="form-label">Overall Price</span>
+                                    <input class="form-control" id="overallprice" name="overallprice" type="text" placeholder="{{totalPrice}}">
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+
+  </fieldset>
+         <input style="display:none" id="listing_id1" name="listing_id1" type="text" value="{{selectedroom._id}}">
+         <input style="display:none" id="startdatee1" name="startdatee1" type="date" value="{{startDate}}">
+         <input style="display:none" id="enddatee1" name="enddatee1" type="date" value="{{endDate}}">
+         <input style="display:none" id="hosteremail1" name="hosteremail1" type="text" value="{{selectedroom.hoster_email}}">
+
+      <button type="submit" class="btn btn-primary">CONFIRM BOOKING!</button>
+
+</form>

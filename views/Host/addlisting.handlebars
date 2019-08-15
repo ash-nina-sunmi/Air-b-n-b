@@ -1,0 +1,150 @@
+
+{{#each errors}}
+ <div class="error">  {{this}} </div>
+{{/each}}
+
+{{!-- 
+<form method="POST" action="">
+
+  <label> Title </label>
+  <input type="text" id="title" name="title" value="{{title}}"> <br><br>
+
+
+  <label> Description </label>
+   <textarea id="description" name="description">{{description}}</textarea> <br><br>
+
+
+  <input type="submit" value="Add Task">
+
+</form>
+
+
+<form action="/profile" method="post" enctype="multipart/form-data">
+  <input type="file" name="avatar" />
+</form>  --}}
+<div class="container-fluid mb-5">
+<form id="frmUploader" enctype="multipart/form-data" action="/host/addlisting" method="post">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="title">Title</label>
+      <input class="form-control" type="text" name="title" id="title" value="{{title}}">
+      {{!-- <input type="text" class="form-control" id="title" name="title" placeholder="Title" value="{{title}}"> --}}
+    </div>
+    <div class="form-group col-md-6">
+      <label for="location">Location</label>
+      <input type="text" class="form-control" id="location" name="location" placeholder="location" value="{{location}}">
+    </div>
+  </div>
+
+
+{{!-- <form id="frmUploader" enctype="multipart/form-data" action="/host/addlisting" method="post">
+<input type="file" name="imgUploader" multiple />
+<input type="submit" name="submit" id="btnSubmit" value="Upload" /> </form> --}}
+
+  {{!-- <div class="custom-file">
+  <input type="file" class="custom-file-input" id="customFile">
+  <label class="custom-file-label" for="customFile">Upload pictures of your place</label>
+</div>
+
+  <div class="custom-file">
+  <input type="file" class="custom-file-input" id="customFile">
+  <label class="custom-file-label" for="customFile">Upload pictures of your place</label>
+</div>
+
+  <div class="custom-file">
+  <input type="file" class="custom-file-input" id="customFile">
+  <label class="custom-file-label" for="customFile">Upload pictures of your place</label>
+</div>
+
+  <div class="custom-file">
+  <input type="file" class="custom-file-input" id="customFile">
+  <label class="custom-file-label" for="customFile">Upload pictures of your place</label>
+</div> --}}
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="price">price per day</label>
+      <input type="text" class="form-control" id="price" name="price" placeholder="price" value="{{price}}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="guests">guests</label>
+      <input type="text" class="form-control" id="guests" name="guests" placeholder="guests" value="{{guests}}">
+    </div>
+  </div>
+
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="bed">Bed</label>
+      <input type="text" class="form-control" id="bed" name="bed" placeholder="bed" value="{{bed}}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="bath">Bath</label>
+      <input type="text" class="form-control" id="bath" name="bath" placeholder="bath" value="{{bath}}">
+    </div>
+  </div>
+
+
+ <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="bed">Start Date</label>
+      <input type="date" class="form-control" id="sdate" name="sdate" placeholder="Start Date" value="{{sdate}}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="bath">End Date</label>
+      <input type="date" class="form-control" id="edate" name="edate" placeholder="End Date" value="{{edate}}">
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label for="details">Details</label>
+    <textarea class="form-control" id="details" name="details" rows="3" placeholder="Describe your place" type="text" value="{{details}}"></textarea>
+  </div>
+
+
+
+    <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <div class="custom-file">
+<input class="custom-file-input" type="file" name="imgUploader" id="customFile" multiple />
+<label class="custom-file-label" for="customFile">Upload pictures of your place</label>
+</div>
+<button type="submit" value="Post your hosting" class="btn btn-secondary mt-3">Submit</button>
+  {{!-- <button type="submit" name="submit" class="btn btn-primary" id="btnSubmit" value="Upload">Post your hosting</button> --}}
+</form>
+</div>
+ {{!-- enctype="multipart/form-data"
+<form method="post" action="/host/addlisting">
+  <label> First Name </label>
+
+  <!-- Please give every form widget a name. This is so that express can access the value from the form widget -->
+  <input type="text" name="title" id="firstName" value="{{title}}"><br><br>
+
+  <label> Last Name </label>
+  <input type="text" name="lastName" id="lastName" value="{{lastName}}"><br><br>
+
+    <label> Username </label>
+  <input type="text" name="username" id="username" value="{{username}}"><br><br>
+
+  <label> Password </label>
+  <input type="password" name="password" id="password"><br><br>
+
+  <label> Confirm Password </label>
+  <input type="password" name="cpassword" id="cpassword"><br><br>
+
+  <input type="submit" value="Submit Form"><br><br>
+
+</form>
+ --}}
+
+{{!-- <form id="frmUploader" enctype="multipart/form-data" action="/host/addlisting" method="post">
+<input type="file" name="imgUploader" multiple />
+<input type="submit" name="submit" id="btnSubmit" value="Upload" /> </form> --}}
+
+<script src="Scripts/jquery-3.1.1.min.js"></script>
+<script src="Scripts/jquery.form.min.js"></script>

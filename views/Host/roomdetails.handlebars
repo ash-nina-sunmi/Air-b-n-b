@@ -1,0 +1,235 @@
+
+{{!------------pic- left-----------------------}}
+
+<div class="container-fluid mb-5">
+  <div class="row">
+
+    <div class="col-lg-6">
+
+<div id="carouselExampleIndicators" class="carousel slide  " data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        {{#if selectedBooking.image.[1]}}
+
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    {{/if}}
+            {{#if selectedBooking.image.[2]}}
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                 {{/if}}
+                          {{#if selectedBooking.image.[3]}}
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                 {{/if}}
+                                           {{#if selectedBooking.image.[4]}}
+    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                 {{/if}}
+
+
+  </ol>
+  <div class="carousel-inner">
+          {{!-- {{#each selectedBooking.image}} --}}
+
+    <div class="carousel-item active">
+
+      <img src="/images/Rooms/{{selectedBooking.image.[0]}}" class="d-block text-center roomimg" alt="...">
+    </div>
+     {{!-- {{/each}} --}}
+    {{#if selectedBooking.image.[1]}}
+
+    <div class="carousel-item">
+      <img src="/images/Rooms/{{selectedBooking.image.[1]}}" class="d-block text-center roomimg" alt="...">
+    </div>
+         {{/if}}
+    {{#if selectedBooking.image.[2]}}
+
+    <div class="carousel-item" >
+      <img src="/images/Rooms/{{selectedBooking.image.[2]}}" class="d-block text-center roomimg" alt="..." >
+    </div>
+             {{/if}}
+                {{#if selectedBooking.image.[3]}}
+
+    <div class="carousel-item" >
+      <img src="/images/Rooms/{{selectedBooking.image.[3]}}" class="d-block text-center roomimg" alt="..." >
+    </div>
+             {{/if}}
+                {{#if selectedBooking.image.[4]}}
+
+    <div class="carousel-item" >
+      <img src="/images/Rooms/{{selectedBooking.image.[4]}}" class="d-block text-center roomimg" alt="..." >
+    </div>
+             {{/if}}
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+  </div>
+
+{{!--------------------------------------------}}
+
+
+{{!------------card-right-----------------------}}
+    <div class="col-lg-6">
+
+<div class="card border-0" >
+  <div class="card-body">
+    <h2 class="card-title">{{selectedBooking.title}}</h2>
+    <h5 class="card-subtitle mb-2 text-muted"><a href="/Host/searchresult/">{{selectedBooking.location}}</a></h5>
+    <h5 class=""><i class="fas fa-home "></i>	Entire apartment</h5>
+    <p class="">{{selectedBooking.guests}} guests/{{selectedBooking.bed}} beds/{{selectedBooking.bath}} bath</p>
+    <h5 class=""><i class="fas fa-door-open  "></i>	Self check-in</h5>
+    <p class="">Check yourself in with the lockbox.</p>
+    <p><a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">More Info</a></p>
+    
+    <div class="collapse mb-3" id="collapseExample">
+    <div class="card card-body">{{selectedBooking.details}}</div>
+    </div>
+    <button type="button" class=" btn btn-outline-secondary btn-sm mt-3">Contact host</button>
+  </div>
+
+  </div>
+</div>
+{{!-----------------------------------}}
+
+</div>
+</div>
+
+{{!-- bottom booking --}}
+
+<nav class="navbar fixed-bottom navbar-light bg-light">
+   <ul class="navbar-nav ">
+  <li class="nav-item">
+  <h6 >From $95/person</h6>
+  </ul>
+  </li>
+
+  <ul class="mr-auto">
+ </ul>
+
+   <ul class="navbar-nav ">
+  <li class="nav-item">
+   <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#elegantModalForm11">Reserve</button>
+  </ul>
+  </li>
+</nav>
+
+{{!-- bottom booking --}}
+
+
+
+{{!-- booking form --}}
+<div class="modal fade" id="elegantModalForm11" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <!--Content-->
+  <div class="modal-content limiter-1">
+        <div class="container-login100">
+            <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+
+                <form action="/host/book" class="login100-form validate-form flex-sb flex-w" method="post">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                  
+                   <legend>${{selectedBooking.price}}  / night</legend>
+
+                    <div class="w-full-1">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span class="form-label">Check In</span>
+                                    <input class="form-control" id="startdatee" name="startdatee" type="date" required="required">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span class="form-label">Check out</span>
+                                    <input class="form-control" id="enddatee" name="enddatee" type="date" required="required">
+                                </div>
+                            </div>
+                        </div>
+       <input style="display:none" id="listing_id" name="listing_id" type="text" value="{{selectedBooking._id}}">
+
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="form-group">
+                                    <span class="form-label">Guests</span>
+                                    <select class="form-control" id="guestpicker">
+                                        <option>1 guest</option>
+                                        <option>2 guest</option>
+                                        <option>3 guest</option>
+                                        <option>4 guest</option>
+                                        <option>5 guest</option>
+                                    </select>
+                                </div>
+                            </div>
+                             </div>
+
+
+                            <div class="w-full-1">
+
+                              <div class="row mb-3 mt-3 ">
+                               <div class="col-4 ">
+                                 <p>$111 x </p>
+                                </div>
+                                  <div class="col-4 align-baseline">
+                                 <input type="num" class="form-control-sm pb-5" id="exampleInputnum" placeholder="3">
+                               </div>
+                               <div class="col-4 text-right">
+                                 $333
+                               </div>
+                             </div>
+
+                            <div class="row mb-3 mt-3">
+                               <div class="col">
+                                 Cleaning fee
+                               </div>
+                               <div class="col text-right">
+                                 $33
+                               </div>
+                             </div>
+                            
+                             <div class="row mb-3 mt-3">
+                               <div class="col">
+                                 Service fee
+                               </div>
+                               <div class="col text-right">
+                                 $90
+                               </div>
+                             </div>
+
+                              <div class="row mb-3 mt-3">
+                               <div class="col">
+                                 Total
+                               </div>
+                               <div class="col text-right">
+                                 $469
+                               </div>
+                             </div>
+
+
+                            </div>
+
+                            <div class="container-login100-form-btn m-t-17 mb-3">
+                                <button class="login100-form-btn">
+                                    Reserve
+                                </button>
+                            </div>
+
+                            <div class="w-full-1 text-center already">
+						              	<p>You won't be charged yet </p>
+                            </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+{{!-- End form --}}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Air B-B {{pageTitle}}</title>
+    {{!-- <link href="css/bootstrap.min.css" rel="stylesheet"> --}}
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/scss.css">
+    <script src="https://kit.fontawesome.com/30b8d295a8.js"></script>    
+</head>
+
+<body>
+    <header>
+     <nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top" >
+      <a href="/" class="nav-link nav-item active navbar-nav mr-auto" title=""><img src="/images/Logo.png" class="headerLogo" alt="airbnbLogo" > <span class="sr-only">(current)</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor03">
+
+{{!-- Search Bar start --}}
+    {{#if searchflag}}
+         {{else}}
+
+    <form class="form-inline my-2 my-lg-0" action="/host/search" method="post">
+      <input type="text" class="form-control mr-sm-2" placeholder="Search" name="search" id="search">
+    </form>
+     {{/if}}
+
+{{!-- Search Bar end --}}
+<ul class="mr-auto">
+</ul>
+   <form class="form-inline my-2 my-lg-0 justify-content-end">
+   <ul class="navbar-nav ">
+ {{#if userInfo}}
+         {{else}}
+
+
+<li class="nav-item">
+     <a href="" class="nav-link" title="Log in" data-toggle="modal" data-target="#elegantModalForm">Log in</a>      
+     </li>
+    {{/if}}
+
+
+     
+
+     {{!-- <li class="nav-item">
+     <a href="/host/addlisting" class="nav-link" title="Host a home">Host a home</a>      
+     </li> --}}
+
+
+     
+     {{#if userInfo}}
+     {{else}}
+<li class="nav-item">
+      <a href="/help" class="nav-link" title="Help">Help</a>      
+     </li>
+          <li class="nav-item">
+
+  <a href="" class="nav-link" data-toggle="modal" title="Sign Up" data-target="#elegantModalForm1">Sign up</a>
+</div>
+     {{/if}}
+
+    </li>
+    </ul>
+    </form>
+
+             {{#if userInfo}}
+
+<ul class="nav nav-pills">
+  <li class="nav-item dropdown show">
+    <a class="btn nav-link dropdown-toggle btn-link btn-sm" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+    <img alt="user’s account" height="26" src="/images/user_pic-50x50 (2).png" width="26" class="friday">
+    </a>
+    <div class="dropdown-menu" id="user" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 37px, 0px); top: 0px; left: 0px; will-change: transform;">
+      <a class="dropdown-item" href="/user/userprofile">Profile</a>
+     <a href="/host/addlisting" class="dropdown-item" title="Host a home">Host a home</a>      
+      {{!-- <a class="dropdown-item" href="#">Invite Friends</a> --}}
+      <div class="dropdown-divider"></div>
+        <form action="/user/logout" class="form-inline my-2 my-lg-0" method="post">
+    <button class="dropdown-item" type="submit">Log Out</button>
+</form>
+
+    </div>
+  </li>
+  </ul>
+          {{/if}}
+
+   </div>
+    </nav>
+    </header>
+
+    
+
+    {{{body}}}
+
+    {{!-- ---------------footer --}}
+
+   <footer>
+      <div class="container-fluid pt-3">
+        <p>&copy; Copyright 2019<a href="https://www.airbnb.ca">Airbnb, Inc. All rights reserved.</a></p>
+      </div>
+  </footer>
+
+    {{!-- ---------------footer --}}
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<!-- Log in start -->
+<div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+
+<div class="modal-content form-elegant wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+				<form class="login100-form validate-form flex-sb flex-w" action="/user/login" method="post">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+					<a href="#" class="btn-face m-b-40">
+						<img src="/images/facebook_logo.png" alt="FACEBOOK">
+						Log in with Facebook
+					</a>
+					<a href="#" class="btn-google m-b-20">
+						<img src="/images/icon-google.png" alt="GOOGLE">
+				        Log in with Google
+					</a>
+
+            <div id="or"> <small>OR </small></p></div>
+            
+					<div class="p-t-30 p-b-9">
+						<span class="txt1">Email Address</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Username is required">
+          <input type="text" id="username" name="username" class="input100">
+					</div>
+
+					<div class="p-t-13 p-b-9">
+						<span class="txt1">Password</span>
+            <a href="#" class="txt2 bo1 m-l-5">Forgot?</a>
+					</div>
+          
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+          <input type="password" id="password" name="password" class="form-control validate">
+					</div>
+                  <div class="remember">
+                  <label class="rememberMe">
+                  <input type="checkbox" value="Remember Me"> Remember Me</label>
+                  </div>
+					<div class="container-login100-form-btn m-t-17">
+
+						<button class="login100-form-btn" type="submit">
+							Sign In
+						</button>
+					</div>
+					<div class="w-full text-center already mb-3">
+						<span class="txt2">
+							Don't have an account?
+						</span>
+						<a href="#" class="txt2 bo1">
+							Sign up
+						</a>
+					</div>
+				</form>
+			</div>
+
+  </div>
+</div>
+<!-- Log in end-->
+
+{{!-- sign up start--}}
+<div class="modal fade " id="elegantModalForm1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <!--Content-->
+ <div class="modal-content form-elegant wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+				<form action="/user/register" method="post" class="login100-form validate-form flex-sb flex-w">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                  <div class="w-full text-center">
+						<span class="txt2">
+							Sign up with
+						</span>
+						<a href="#" class="txt2 bo1">
+							Facebook
+						</a>
+            <span class="txt2">
+							or
+						</span>
+                    <a href="#" class="txt2 bo1">
+							Google
+						</a>
+					</div>
+            <div id="or"> <small>OR </small></p></div>
+
+         <label for="exampleInputUsername">Email username</label>
+					<div class="wrap-input100 validate-input" data-validate = "Email Address is required">
+						<input class="input100" type="text" name="username" id="username" placeholder="Enter username" value="{{username}}">
+					</div>
+          
+          <label for="exampleInputemail">Email email</label>
+					<div class="wrap-input100 validate-input" data-validate = "Email Address is required">
+						<input class="input100" type="text" name="emailaddress" id="emailaddress" placeholder="Enter email" value="{{emailaddress}}">
+					</div>
+
+          <label for="exampleInputPassword">Password</label>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="password" id="password" placeholder="Enter password" value="{{password}}">
+					</div>
+           
+           <label for="exampleInputComfirm">Comfirm Password</label>
+          <div class="wrap-input100 validate-input" data-validate = "Confirm Password is required">
+						<input class="input100" type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" value="{{cpassword}}">
+					</div>
+
+					<div class="container-login100-form-btn m-t-17">
+						<button type="submit" class="login100-form-btn">
+							Sign Up
+						</button>
+					</div>
+                   <div class="remember">
+                        <input class="checkBox" type="checkbox" value="message">
+                  </div>
+                  <div class="remember">
+                        <label class="check">I don’t want to receive marketing messages from Airbnb. I can also opt out of receiving these at any time in my account settings or via the link in the message.
+                        </label>
+                  </div>
+					<div class="w-full text-center already mb-3">
+						<span class="txt2">
+							Already have an Airbnb account?
+						</span>
+						<a href="#" class="txt2 bo1 ">
+							Log in
+						</a>
+					</div>
+				</form>
+			</div>
+    <!--/.Content-->
+  </div>
+</div>
+{{!-- sign up end--}}
+
+</body>
+</html>

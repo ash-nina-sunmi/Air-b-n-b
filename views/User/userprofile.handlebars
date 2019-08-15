@@ -1,0 +1,59 @@
+
+      
+      
+      <div class="container emp-profile">
+         <form method="POST" action="/user/edit/email/{{userInfo._id}}?_method=PUT">
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="profile-img">
+                     <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                     <a href="#" class="profile-update">Update photo</a>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="profile-head">
+                     <h1>
+                        Hi, I'm {{userInfo.firstName}}
+                     </h1>
+                     <p class="profile-space">
+                     </p>
+                     <div id="or-2"></div>
+                     <ul class="nav" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <input class="nav-link active" type="text" name="emailaddress" id="emailaddress" placeholder="EMAIL GOES HERE" value="{{userInfo.email}}">
+                           {{!-- <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Email address<br>{{userInfo.email}}</a> --}}
+
+                        </li>
+                        <input type="submit" value="Change">
+                                                   </form>
+
+                     </ul>
+                     <ul class="nav" id="myTab" role="tablist">
+                        <li class="nav-item phone">
+                        <form method="POST" action="/user/edit/phone/{{userInfo._id}}?_method=PUT">
+                            <input class="nav-link active" type="text" name="phonenumber" id="phonenumber" placeholder="PHONE GOES HERE" value="{{userInfo.phone}}">
+
+                           {{!-- <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Phone number<br>{{userInfo.phone}}</a> --}}
+                        </li>
+                        <input type="submit" value="Change">
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+
+
+
+
+
+      {{!-- <form method="POST" action="/user/edit/{{userInfo._id}}?_method=PUT">
+  <label> taskName </label>
+  <input type="text" name="taskName" id="taskName" value="{{task.taskName}}"><br><br>
+
+  <label> taskDescription </label>
+  
+   <textarea id="taskDescription" name="taskDescription">{{task.taskDescription}}</textarea><br>
+  <input type="submit" value="Save Task"><br><br>
+
+</form> --}}
